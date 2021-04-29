@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#000',
     textAlign: 'center',
-    marginRight: 20,
+    marginLeft: 20,
   },
   glass: {
     position: 'absolute',
-    right: 8,
+    left: 8,
     top: 10,
     fontSize: 25,
     margin: 5,

@@ -6,22 +6,33 @@ import {
   View,
   ScrollView,
   Dimensions,
+  FlatList,
 } from 'react-native';
 import Navbar from './Navbar';
 import {SearchBar} from './SearchBar';
+import TutorsCard from './TutorsCard';
+import sourceData from '../assets/sourceData.json';
 
 const Tutors = props => {
+  const renderedFunction = ({item}) => <TutorsCard componentItem={item} />;
   return (
     <View style={{flex: 1}}>
       <Navbar navigation={props.navigation} />
-      <ScrollView>
-        <ImageBackground
-          source={require('../assets/background1.jpg')}
-          style={styles.MainContainer}>
+
+      <ImageBackground
+        style={{flex: 1}}
+        source={require('../assets/background1.jpg')}
+        style={styles.MainContainer}>
+        <ScrollView>
           <Text style={styles.title}>TUTORS</Text>
           <SearchBar />
-        </ImageBackground>
-      </ScrollView>
+          <FlatList
+            keyExtractor={(_, index) => index.toString()}
+            data={sourceData}
+            renderItem={renderedFunction}
+          />
+        </ScrollView>
+      </ImageBackground>
     </View>
   );
 };
